@@ -21,7 +21,9 @@ const slides = [
 const baseUrl = "./assets/images/slideshow/";
 const precedent = document.querySelector('.arrow_left');
 const suivant = document.querySelector('.arrow_right');
-const image = document.querySelector('.banner-img')
+const image = document.querySelector('.banner-img');
+const txt = document.querySelector('.txt_tagline');
+const dot = document.querySelector('.dots')
 let positionslide = 0;
 
 precedent.addEventListener("click", function () {
@@ -29,6 +31,8 @@ precedent.addEventListener("click", function () {
 		positionslide = slides.length - 1;
 	} else { positionslide-- }
 	image.src = baseUrl + slides[positionslide].image;
+	txt.innerHTML= slides[positionslide].tagLine;
+	dot = slides [positionslide].do
 });
 
 suivant.addEventListener("click", function () {
@@ -36,4 +40,5 @@ suivant.addEventListener("click", function () {
 		positionslide = 0;
 	} else { positionslide++ }
 	image.src = baseUrl + slides[positionslide].image;
+	txt.innerHTML= slides[positionslide].tagLine;
 });
