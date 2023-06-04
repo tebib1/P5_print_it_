@@ -23,22 +23,35 @@ const precedent = document.querySelector('.arrow_left');
 const suivant = document.querySelector('.arrow_right');
 const image = document.querySelector('.banner-img');
 const txt = document.querySelector('.txt_tagline');
-const dot = document.querySelector('.dots')
+const allDots = document.querySelectorAll('.dots .dot');
 let positionslide = 0;
 
+
 precedent.addEventListener("click", function () {
+
+	allDots[positionslide].classList.remove("dot_selected"); 
+
 	if (positionslide == 0) {
 		positionslide = slides.length - 1;
 	} else { positionslide-- }
 	image.src = baseUrl + slides[positionslide].image;
 	txt.innerHTML= slides[positionslide].tagLine;
-	dot = slides [positionslide].do
+	allDots[positionslide].classList.add("dot_selected");
 });
 
 suivant.addEventListener("click", function () {
+
+	allDots[positionslide].classList.remove("dot_selected");
+
 	if (positionslide == slides.length -1 ) {
 		positionslide = 0;
 	} else { positionslide++ }
 	image.src = baseUrl + slides[positionslide].image;
 	txt.innerHTML= slides[positionslide].tagLine;
+	allDots[positionslide].classList.add("dot_selected");
 });
+
+
+
+
+
